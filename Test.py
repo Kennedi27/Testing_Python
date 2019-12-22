@@ -14,19 +14,12 @@ class newfile(object):
             if y == 'y':
                 x = newfile()
                 x.create()
-            else:
-                print("Bye...")
-                pass
-        finally:
-            print("Restarting.....")
-            sleep(2)
-            clear()
     def read(read,**namefile):
         try:
             print("Reading File Zone")
             read.namefile = str(input("Enter The File Name:"))
             f = open(read.namefile+".txt","r")
-            f.read()
+            print(f.read())
             f.close()
         except FileNotFoundError:
             print("Oops! Sorry We Cannot Find Your File")
@@ -35,8 +28,6 @@ class newfile(object):
                 name = str(input("Enter the File name:"))
                 y = newfile(name)
                 y.create()
-            else:
-                pass
     def append(self,**namefile):
         try:
             print("Appending File Zone")
@@ -59,8 +50,6 @@ class newfile(object):
                 name = str(input("Enter the File name:"))
                 y = newfile(name)
                 y.create()
-            else:
-                pass
     def over(self,**namefile):
         try:
             print("OverWriting File Zone")
@@ -83,8 +72,6 @@ class newfile(object):
                 name = str(input("Enter the File name:"))
                 y = newfile(name)
                 y.create()
-            else:
-                pass
     def delete(self):
         self.namefile = str(input("Enter The File Name:"))
         if os.path.exists(self.namefile+".txt"):
@@ -103,11 +90,6 @@ class switcher(newfile):
         thismethod = getattr(self, method, lambda : "Invalid Choose")
         # Call the method as we return it
         return thismethod()
-    def sub_method(self):
-        """"Dispatch Method"""
-        method = 'method'+str(self.pick)
-        #Get the Method form 'self'. Default to a Lambda
-        thismethod = getattr(self, method, lambda : "Invalid Choose")
     def method1(self):
         x = newfile()
         x.create()
