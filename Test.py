@@ -1,6 +1,8 @@
 from os import system, name
 from time import sleep
 import os
+
+#buat class baru
 class newfile(object):
     def create(add,**namefile):
         try:
@@ -79,6 +81,8 @@ class newfile(object):
             print("Delete Successfully")
         else:
             print("File Doesn't Exists")
+
+#class baru
 class switcher(newfile):
     def __init__(self,num):
         self.pick = num
