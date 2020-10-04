@@ -4,23 +4,26 @@ import os
 
 #buat class baru
 class newfile(object):
-    def create(add,**namefile):
+    def create(self,**namefile):
         try:
             print("Createing File Zone")
-            add.namefile = str(input("Enter The File Name:"))
-            f = open(add.namefile+".txt","x")
+            self.namefile = str(input("Enter The File Name:"))
+            f = open(self.namefile+".txt","x")
             f.close()
+            print("----------------------------")
+            print("| File Create Successfull |")
+            print("----------------------------")
         except FileExistsError:
             print("File is Already Exists")
             y = str(input("Still Want To continue(y/n):"))
             if y == 'y':
                 x = newfile()
                 x.create()
-    def read(read,**namefile):
+    def read(self,**namefile):
         try:
             print("Reading File Zone")
-            read.namefile = str(input("Enter The File Name:"))
-            f = open(read.namefile+".txt","r")
+            self.namefile = str(input("Enter The File Name:"))
+            f = open(self.namefile+".txt","r")
             print(f.read())
             f.close()
         except FileNotFoundError:
@@ -37,7 +40,8 @@ class newfile(object):
             self.namefile = str(input("Enter The File Name:"))
             f = open(self.namefile+".txt","a")
             while valid:
-                file = str(input("Put Some String:"))
+                file = " "
+                file += str(input("Put Some String:"))
                 f.write(file)
                 x = str(input("Do You Want To Continue(y/n):"))
                 if x == "y":
